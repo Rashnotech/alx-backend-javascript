@@ -1,4 +1,3 @@
-#!/usr/bin/node
 
 import Currency from './3-currency';
 
