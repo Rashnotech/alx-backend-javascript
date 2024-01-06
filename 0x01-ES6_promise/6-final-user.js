@@ -9,5 +9,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     photoPromise]).then((results) => results.map((result) => ({
     status: result.status,
     value: result.status === 'fulfilled' ? result.value : result.reason,
-  })));
+  }))).catch((error) => Error(error));
 }
