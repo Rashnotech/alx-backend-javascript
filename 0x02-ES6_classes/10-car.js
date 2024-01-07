@@ -1,13 +1,16 @@
-#!/usr/bin/node
-
-export class Car {
+export default class Car {
   constructor(brand, motor, color) {
-    this._branch = brand;
+    this._brand = brand;
     this._motor = motor;
     this._color = color;
   }
 
+  static get [Symbol.species]() {
+    return this;
+  }
+
   cloneCar() {
-    return new Car();
+    const Species = this.constructor[Symbol.species];
+    return new Species();
   }
 }
