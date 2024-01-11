@@ -62,3 +62,13 @@ const executeWork = (employee: Employee: string) => {
     return employee.workTeacherTasks();
   }
 }
+
+
+type Subjects = 'Math' | 'History';
+
+
+const teachClass = (todayClass: Subjects): string => {
+  if (teachClass === 'Math') return 'Teaching Math';
+  if (teachClass === 'History') return 'Teaching History';
+  return 
+};
