@@ -1,8 +1,3 @@
-#!/usr/bin/env node
-/**
- * a program that execute command line
- */
-
 console.log('Welcome to Holberton School, what is your name?');
 
 process.stdin.on('readable', function () {
