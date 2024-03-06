@@ -2,7 +2,6 @@ const fs = require('fs');
 const http = require('http');
 const dbFile = process.argv.length > 2 ? process.argv[2] : '';
 
-
 const countStudents = (fileName) => new Promise((resolve, reject) => {
   fs.readFile(fileName, 'utf-8', (err, data) => {
     if (err) reject(new Error('Cannot load the database'));
@@ -33,7 +32,6 @@ const countStudents = (fileName) => new Promise((resolve, reject) => {
   });
 });
 
-
 const app = http.createServer();
 
 app.on('request', (request, response) => {
@@ -48,17 +46,17 @@ app.on('request', (request, response) => {
     countStudents(dbFile)
       .then((students) => {
         text.push(students);
-	const res = text.join('\n');
-	response.setHeader('content-Type', 'text/plain');
-	response.setHeader('content-Length', res.length);
-	response.statusCode = 200;
-	response.write(Buffer.from(res));
+        const res = text.join('\n');
+        response.setHeader('content-Type', 'text/plain');
+        response.setHeader('content-Length', res.length);
+        response.statusCode = 200;
+        response.write(Buffer.from(res));
       }).catch((err) => {
-	text.push(err instanceof Error ? err.message : err.toString());
-	const res = text.join('\n');
-	response.setHeader('content-Type', 'text/plain');
-	response.setHeader('content-Length', res.length);
-	response.statusCode = 200;
+        text.push(err instanceof Error ? err.message : err.toString());
+        const res = text.join('\n');
+        response.setHeader('content-Type', 'text/plain');
+        response.setHeader('content-Length', res.length);
+        response.statusCode = 200;
         response.write(Buffer.from(res));
       });
   }
