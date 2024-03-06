@@ -44,11 +44,17 @@ app.get('/students', (req, res) => {
   countStudents(dbFile)
     .then((students) => {
       text.push(students);
-      const respond = text.join('\n');
-      res.send(Buffer.from(respond));
+      const response = text.join('\n');
+      res.setHeader('content-Type', 'text/plain');
+      res.setHeader('content-Length', response.length);
+      res.statusCode = 200;
+      res.send(Buffer.from(response));
     }).catch((err) => {
       text.push(err instanceof Error ? err.message : err.toString());
       const response = text.join('\n');
+      res.setHeader('content-Type', 'text/plain');
+      res.setHeader('content-Length', response.length);
+      res.statusCode = 200;
       res.send(Buffer.from(response));
     });
 });
