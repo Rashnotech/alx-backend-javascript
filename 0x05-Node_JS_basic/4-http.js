@@ -5,5 +5,4 @@ const app = http.createServer((request, response) => {
   response.end();
 }).listen(1245);
 
-
 module.exports = app;
