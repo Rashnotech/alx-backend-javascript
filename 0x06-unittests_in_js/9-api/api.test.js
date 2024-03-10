@@ -15,10 +15,15 @@ describe('index', () => {
     })
   })
 
-  it('test /cart/:id/(//d+)', () => {
+  it('test /cart/:id/(//d+)', (done) => {
     request.get('http://localhost:7865/cart/12', (err, res, body) => {
+      if (err) {
+        done(err);
+	return;
+      }
       expect(res.statusCode).to.be.equal(200);
-      expect(body).to.be.equal('Payment methods for cart 12')
+      expect(body).to.be.equal('Payment methods for cart 12');
+      done();
     })
   })
 
