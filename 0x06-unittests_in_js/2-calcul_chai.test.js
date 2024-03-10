@@ -3,17 +3,17 @@ const calculateNumber = require('./1-calcul.js')
 
 
 describe('calculateNumber', () => {
-  describe('Test Sum', () => {
+  describe('test SUM', () => {
     it('should return 6', () => {
       expect(calculateNumber('SUM', 1.4, 4.5)).to.equal(6)
     })
   })
-  describe('Test Substract', () => {
+  describe('test SUBTRACT', () => {
     it('should return -4', () => {
       expect(calculateNumber('SUBTRACT', 1.4, 4.5)).to.equal(-4)
     })
   })
-  describe('Test Division', () => {
+  describe('test DIVIDE', () => {
     it('should return 0.2', () => {
       expect(calculateNumber('DIVIDE', 1.4, 4.5)).to.equal(0.2)
     })
